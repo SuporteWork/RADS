@@ -1,13 +1,15 @@
 (R)ocky (A)ctive (D)irectory (S)cript Builder
 
 ###############################################
-RADS is NOW FULLY SUPPORTED ON 9.5 for a fresh install and also upgrades from previous versions of Samba
+RADS is NOW FULLY SUPPORTED ON 9.5 and 9.6 for a fresh install and also upgrades from previous versions of Samba
+Version 10 support is currently UNSUPPORTED (for now)
 ###############################################
 A walk-through can also be seen here:
 https://youtu.be/daaX67Ovegk
 
 This is a script to allow a Rocky (RHEL) Server (9.x) to become an AD/DC Server from Samba Source. 
 Yes, there are others that build RPMS, but why not build it yourself?
+RADS builds Samba from the Rocky Samba SRPM into RPM packages and installs them (dnf-managed).
 I took this approach because there is not one binary that this script modifies and therefore can be a trusted source. 
 
 
@@ -57,4 +59,4 @@ Please see the EASY_INSTALL File
 #After the GUI install: 
 #(Just copy and paste the following line on the Rocky terminal)
 
-dnf -y install wget && cd /root &&  bash <(wget -qO- https://raw.githubusercontent.com/fumatchu/RADS/main/DC-Installer.sh)
+dnf -y install wget && cd /root &&  bash <(wget -qO- https://raw.githubusercontent.com/SuporteWork/RADS/main/DC-Installer.sh)

@@ -39,6 +39,25 @@ else
   echo "Exiting the installer..."
   exit
 fi
+
+# ========= OPTIMIZE DNF =========
+optimize_dnf() {
+  echo "Tuning DNF for faster downloads..."
+  sleep 1
+  
+  if [[ -f /etc/dnf/dnf.conf ]]; then
+    has_fastest=$(grep "^fastestmirror=" /etc/dnf/dnf.conf)
+    has_parallel=$(grep "^max_parallel_downloads=" /etc/dnf/dnf.conf)
+    
+    if [[ -z "$has_fastest" ]]; then
+      echo "fastestmirror=True" >> /etc/dnf/dnf.conf
+    fi
+    if [[ -z "$has_parallel" ]]; then
+      echo "max_parallel_downloads=10" >> /etc/dnf/dnf.conf
+    fi
+  fi
+}
+
 clear
 cat <<EOF
 Checking for static IP Address
@@ -229,6 +248,9 @@ cat <<EOF
 ${GREEN}Downloading and installing updates${TEXTRESET}
 EOF
 sleep 3s
+
+optimize_dnf
+
 dnf -y install epel-release
 dnf -y install dnf-plugins-core
 dnf config-manager --set-enabled crb

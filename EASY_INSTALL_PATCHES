@@ -21,4 +21,4 @@ Please keep in mind that this is also true if the script finds updates. YOU MAY 
 ##END NOTE FOR SAMBA-DNF-PKG-UPDATE##
 
 #(Just copy and paste the following line on the Rocky terminal or remote SSH terminal- remote suggested)
-dnf -y install wget && cd /root &&  bash <(wget -qO- https://raw.githubusercontent.com/fumatchu/RADS/main/patch.sh)
+dnf -y install wget && cd /root &&  bash <(wget -qO- https://raw.githubusercontent.com/SuporteWork/RADS/main/patch.sh)
